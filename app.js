@@ -14,6 +14,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const bodyParser = require('body-parser');
 
 
 //!Rate limiting
@@ -28,7 +29,7 @@ app.use(hpp());
 app.use(mongoSanitize());
 app.use(limiter);
 
-app.use(express.json({ limit: '5mb' }));
+app.use(bodyParser.json({ limit: '5mb' }));
 
 
 //!Managing Backend routing
